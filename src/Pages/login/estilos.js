@@ -5,7 +5,7 @@ import { createGlobalStyle } from 'styled-components';
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  background-color: #FFE712; /* Fundo amarelo */
+  background-color: #FFE712;
   height: 12vh;
 `;
 

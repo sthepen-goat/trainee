@@ -13,8 +13,8 @@ export async function CreateUser(body) {
 }
 
 export async function UpdateUser(id, body) {
-  const { data } = await api.put(`/usuarios/${id}`, body); 
-  return data;
+    const { data } =  api.put(`/usuarios:${id}`, body);  
+    return data;
 }
 
 export async function DeleteUser(id) {

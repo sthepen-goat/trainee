@@ -26,34 +26,34 @@ export default function Login() {
 
   useEffect(() => {
     if (token) {
-      navigate("/home"); // Redireciona automaticamente se já estiver logado
+      navigate("/home"); 
     }
   }, [token, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Ativa o estado de carregamento
+    setLoading(true); 
 
     try {
       const res = await api.post("/login", { email, senha });
       const { token } = res.data;
 
-      setToken(token); // Salva o token no estado global
+      setToken(token); 
       toast.success("Login realizado com sucesso!");
-      navigate("/home"); // Redireciona para a página inicial
+      navigate("/home"); 
     } catch (erro) {
       console.error(erro);
       const errorMessage =
         erro.response?.data?.message || "Erro ao realizar login.";
       toast.error(`Erro: ${errorMessage}`);
     } finally {
-      setLoading(false); // Desativa o estado de carregamento
+      setLoading(false); 
     }
   };
 
   return (
     <>
-      <GlobalStyles /> {/* Aplica os estilos globais */}
+      <GlobalStyles /> 
       <LogoContainer>
         <img src="/real.png" alt="Logo" />
       </LogoContainer>
@@ -69,7 +69,7 @@ export default function Login() {
             placeholder="Digite seu e-mail"
             required
             onChange={(e) => setEmail(e.target.value)}
-            disabled={loading} // Desativa o campo enquanto estiver carregando
+            disabled={loading} 
           />
         </div>
         <div>
@@ -80,13 +80,13 @@ export default function Login() {
             placeholder="Digite sua senha"
             required
             onChange={(e) => setSenha(e.target.value)}
-            disabled={loading} // Desativa o campo enquanto estiver carregando
+            disabled={loading} 
           />
         </div>
         <div>
           <Paragraph>
             Não tem conta? Faça o cadastro{" "}
-            <Link href="/cadrasto">aqui</Link> {/* Atualizado para caminho relativo */}
+            <Link href="/cadrasto">aqui</Link> 
           </Paragraph>
         </div>
         <OtherButton type="submit" disabled={loading}>
